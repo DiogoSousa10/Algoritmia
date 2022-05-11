@@ -13,7 +13,6 @@
 #define RIGHT(node) ((node)->dir)
 #define EMPTY NULL
 #define NO_LINK NULL
-
 //-------------------------------------------
 
 typedef enum _STATUS { ERROR = 0, OK = 1 } STATUS;
