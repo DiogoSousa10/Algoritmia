@@ -73,8 +73,9 @@ int main(void)
 		printf("\nVencedor do torneio: %s\n", ((PLAYER*)DATA(Btree))->name);
 
 
-		printf("\nJogos disputados pelo Vencedor:\n");
-		PrintWinnerGames(Btree);
+		
+		//printf("\nJogos disputados pelo Vencedor:\n");
+		//PrintWinnerGames(Btree);
 		//printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree, DATA(Btree)));
 		//BtreeFree(Btree);
 		//getch();
@@ -222,9 +223,9 @@ void PrintWinnerGames(BTREE btree)
 {
 while (btree != NULL)
 {
-	if (((PLAYER*)DATA(btree))->name == "Jogador4") {
-		printf("%s",((PLAYER*)DATA(btree))->name);
-	}
+	//if (((PLAYER*)DATA(btree))->name == "Jogador4") {
+	//	printf("%s",((PLAYER*)DATA(btree))->name);
+	//}
 }
 
 
