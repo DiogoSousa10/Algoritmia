@@ -222,7 +222,7 @@ void PrintWinnerGames(BTREE btree)
 {
 while (btree != NULL)
 {
-	if (((PLAYER*)DATA(btree))->name == "JOGADOR4") {
+	if (((PLAYER*)DATA(btree))->name == "Jogador4") {
 		printf("%s",((PLAYER*)DATA(btree))->name);
 	}
 }
