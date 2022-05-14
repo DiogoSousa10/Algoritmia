@@ -62,25 +62,24 @@ int main(void)
 	if (ReadPlayersFromFile(players, file_name))
 	{
 		Btree = CreateBtree(players, 0, STAGES);
-		printf("\nLista de participantes:\n");
-		
-	
-
+		printf("\nLista de participantes:\n"); 
 		PrintLeafs(Btree);
 		printf("\nLista de Jogos:\n");
 		PrintAllGames(Btree);
 		printf("\nNúmero de eliminatórias: %d", BtreeDeep(Btree) - 1);
 		printf("\nNúmero de Jogos: %d", BtreeSize(Btree) / 2);
-		printf("\nNúmero de Sets: %d", CountTotalSets(Btree));
-
+		printf("\n\n\n");
+		printf("\nNúmero de Sets: %d", CountTotalSets(Btree));   
 		printf("\nVencedor do torneio: %s\n", ((PLAYER*)DATA(Btree))->name);
+
+
 		printf("\nJogos disputados pelo Vencedor:\n");
 		PrintWinnerGames(Btree);
-		printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree, DATA(Btree)));
-		BtreeFree(Btree);
+		//printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree, DATA(Btree)));
+		//BtreeFree(Btree);
 		//getch();
 	}
-	else
+	else 
 		printf("ERRO na leitura do ficheiro\n");
 	//getch();
 	return 0;
@@ -221,16 +220,28 @@ void PrintLeafs(BTREE btree)
 
 void PrintWinnerGames(BTREE btree)
 {
+while (btree != NULL)
+{
+	if (((PLAYER*)DATA(btree))->name == "JOGADOR4") {
+		printf("%s",((PLAYER*)DATA(btree))->name);
+	}
 }
+
+
+
+}
+
+
 int CountTotalSets(BTREE btree)
 {
 	int count = 0;
 	while (btree != NULL) {
 		CountTotalSets(LEFT(btree));
-		count = count + ((PLAYER*)DATA(btree))->sets;
-		CountTotalSets(RIGHT(btree));
+		//printf("%d\n", ((PLAYER*)DATA(btree))->sets);
+		count = ((PLAYER*)DATA(btree))->sets + CountTotalSets(LEFT(btree)) + CountTotalSets(RIGHT(btree));
+		CountTotalSets(RIGHT(btree)); 
+		return count;
 	}
-	return count;
 }
 int CountWinnerSets(BTREE btree, void* winner)
 {
