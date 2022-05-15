@@ -210,10 +210,10 @@ void PrintLeafs(BTREE btree)
 {
 	
 	while (btree != NULL) {
-		PrintLeafs(LEFT(btree));
-		printf("%s || sets -> %d\n", ((PLAYER*)DATA(btree))->name, ((PLAYER*)DATA(btree))->sets);
-		PrintLeafs(RIGHT(btree));
-		return;
+		printf("%d, ", *(int*)DATA(btree));
+	PrintLeafs(LEFT(btree));
+	PrintLeafs(RIGHT(btree));
+	return;
 	}
 }
 
@@ -228,8 +228,6 @@ while (btree != NULL)
 	PrintWinnerGames(RIGHT(btree));
 	return;
 }
-
-
 
 }
 
