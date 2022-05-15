@@ -71,13 +71,10 @@ int main(void)
 		printf("\n\n\n");
 		printf("\nNúmero de Sets: %d", CountTotalSets(Btree));   
 		printf("\nVencedor do torneio: %s\n", ((PLAYER*)DATA(Btree))->name);
-
-
-		
-		//printf("\nJogos disputados pelo Vencedor:\n");
-		//PrintWinnerGames(Btree);
+		printf("\nJogos disputados pelo Vencedor:\n");
+		PrintWinnerGames(Btree);
 		//printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree, DATA(Btree)));
-		//BtreeFree(Btree);
+		BtreeFree(Btree);
 		//getch();
 	}
 	else 
@@ -85,6 +82,7 @@ int main(void)
 	//getch();
 	return 0;
 }
+
 
 int Eliminatorias(BTREE_NODE* BTREE) {
 	int count = 0;
@@ -94,10 +92,8 @@ int Eliminatorias(BTREE_NODE* BTREE) {
 		 count = 1 + Eliminatorias(LEFT(BTREE)) + Eliminatorias(RIGHT(BTREE));
 		 return count;
 	}
-	
-	
-}
 
+}
 
 BTREE_NODE* NewBtreeNode(void* data)
 {
@@ -143,6 +139,8 @@ BTREE_NODE* CreateBtree(void** v, int i, int size)
 	else
 		return(InitNode(*(v + i), CreateBtree(v, 2 * i + 1, size), CreateBtree(v, 2 * i + 2, size)));
 }
+
+
 void BtreeFree(BTREE btree)
 {
 	if (btree != NULL)
@@ -223,9 +221,12 @@ void PrintWinnerGames(BTREE btree)
 {
 while (btree != NULL)
 {
-	//if (((PLAYER*)DATA(btree))->name == "Jogador4") {
-	//	printf("%s",((PLAYER*)DATA(btree))->name);
-	//}
+	PrintWinnerGames(LEFT(btree));
+	if ((!strcmp("Jogador4", ((PLAYER*)DATA(btree))->name))) {
+		printf("%s \n",((PLAYER*)DATA(btree))->name);
+	}
+	PrintWinnerGames(RIGHT(btree));
+	return;
 }
 
 
@@ -250,4 +251,5 @@ int CountWinnerSets(BTREE btree, void* winner)
 }
 void PrintAllGames(BTREE btree)
 {
+	
 }
