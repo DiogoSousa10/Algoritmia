@@ -208,15 +208,14 @@ STATUS ReadPlayersFromFile(void** players, char* file_name)
 
 void PrintLeafs(BTREE btree)
 {
-	
+
 	while (btree != NULL) {
-		printf("%d, ", *(int*)DATA(btree));
-	PrintLeafs(LEFT(btree));
-	PrintLeafs(RIGHT(btree));
-	return;
+		PrintLeafs(LEFT(btree));
+		printf("%s || sets -> %d\n", ((PLAYER*)DATA(btree))->name, ((PLAYER*)DATA(btree))->sets);
+		PrintLeafs(RIGHT(btree));
+		return;
 	}
 }
-
 void PrintWinnerGames(BTREE btree)
 {
 while (btree != NULL)
