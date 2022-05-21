@@ -210,9 +210,9 @@ void PrintLeafs(BTREE btree)
 {
 
 	while (btree != NULL) {
-		PrintLeafs(LEFT(btree));
 		printf("%s || sets -> %d\n", ((PLAYER*)DATA(btree))->name, ((PLAYER*)DATA(btree))->sets);
-		PrintLeafs(RIGHT(btree));
+		PrintLeafs(LEFT(btree));
+		PrintLeafs(RIGHT(btree));		
 		return;
 	}
 }
@@ -220,11 +220,13 @@ void PrintWinnerGames(BTREE btree)
 {
 while (btree != NULL)
 {
-	PrintWinnerGames(LEFT(btree));
 	if ((!strcmp("Jogador4", ((PLAYER*)DATA(btree))->name))) {
-		printf("%s \n",((PLAYER*)DATA(btree))->name);
+		PrintWinnerGames(RIGHT(btree));
+		PrintWinnerGames(LEFT(btree));
+		printf("\n");
 	}
-	PrintWinnerGames(RIGHT(btree));
+	printf("%s \n",((PLAYER*)DATA(btree))->name);
+
 	return;
 }
 
@@ -250,3 +252,27 @@ void PrintAllGames(BTREE btree)
 {
 	
 }
+
+/* 
+Jogador4;0
+
+Jogador4;3
+Jogador6;1
+
+Jogador1;2
+Jogador4;3
+
+Jogador6;3
+Jogador7;2
+
+Jogador1;3
+Jogador2;0
+
+Jogador3;2
+Jogador4;3
+
+Jogador5;1
+Jogador6;3
+
+Jogador7;3
+Jogador8;2*/
