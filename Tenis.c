@@ -45,7 +45,7 @@ void PrintLeafs(BTREE);
 void BtreeFree(BTREE);
 void PrintWinnerGames(BTREE);
 int CountTotalSets(BTREE);
-int CountWinnerSets(BTREE, void*);
+int CountWinnerSets(BTREE btree);
 void PrintAllGames(BTREE);
 BOOLEAN isLeaf(BTREE btree);
 
@@ -74,7 +74,7 @@ int main(void)
 		printf("\nVencedor do torneio: %s\n", ((PLAYER*)DATA(Btree))->name);
 		printf("\nJogos disputados pelo Vencedor:\n");
 		PrintWinnerGames(Btree);
-		printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree, DATA(Btree)));
+		printf("\nSets ganhos pelo Vencedor: %d\n", CountWinnerSets(Btree));
 		BtreeFree(Btree);
 		//getch();
 	}
@@ -247,17 +247,23 @@ int CountTotalSets(BTREE btree)
 		return count;
 	}
 }
-int CountWinnerSets(BTREE btree, void* winner)
+int CountWinnerSets(BTREE btree)
 {
-	while (btree != NULL)
-	{
-		if(!strcmp(((PLAYER*)DATA(LEFT(btree)))->name, ((PLAYER*)DATA((btree)))->name)){
-			winner =+ ((PLAYER*)DATA(btree))->sets ;
-		}
-		return 
-	}
-	
+    int count = 0;
+    BTREE BT=btree;
+    count += ((PLAYER*)DATA(BT))->sets;
+    if (btree != NULL && !BtreeLeaf(btree)) {
+        if (!strcmp(((PLAYER*)DATA(LEFT(btree)))->name, ((PLAYER*)DATA((btree)))->name)){
+            count +=  CountWinnerSets(LEFT(BT));
+        }
+        else
+        {
+            count += CountWinnerSets(RIGHT(BT));
+        }
+    }
+    return (count);
 }
+
 	
 void PrintAllGames(BTREE btree)
 {
