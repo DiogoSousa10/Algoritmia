@@ -14,6 +14,14 @@
 
 
 
+# O mais importante (na minha opiniao) para a teorica
+-Tipologia dos algoritmos
+-Arvores binarias
+-Algoritmos de ordenação
+-Algoritmosd de pesquisa
+-Listas
+
+
 # Knock Knock...  
 # Who's there...  
 # é o fucking diogo...  
