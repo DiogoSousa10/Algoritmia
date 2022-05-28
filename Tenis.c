@@ -258,7 +258,7 @@ int CountWinnerSets(BTREE btree)
         }
         else
         {
-            count += CountWinnerSets(RIGHT(BT));
+            count += CountWinnerSets(RIGHT(BT)); // why este else?
         }
     }
     return (count);
