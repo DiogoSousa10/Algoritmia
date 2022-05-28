@@ -1,7 +1,6 @@
 # Funções mais importantes abordadas nas aulas que podem sair no teste:
 - int Eliminatorias(BTREE);
 - void PrintLeafs(BTREE);
-- void BtreeFree(BTREE);
 - void PrintWinnerGames(BTREE);
 - int CountTotalSets(BTREE);
 - int CountWinnerSets(BTREE btree);
