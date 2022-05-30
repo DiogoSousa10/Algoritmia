@@ -7,6 +7,8 @@
 - void PrintAllGames(BTREE);
 - BOOLEAN isLeaf(BTREE btree); ---- Melhor saber por precaução
 
+Talvez seja importante tbm a merda da leitura dos ficheiros irmão <3   
+
 # As que também acho que pode sair:
 - Inserção 
 - Remover
