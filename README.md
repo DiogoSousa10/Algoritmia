@@ -23,9 +23,3 @@ Talvez seja importante tbm a merda da leitura dos ficheiros irmão <3
 -Algoritmosd de pesquisa
 -Listas
 
-
-# Knock Knock...  
-# Who's there...  
-# é o fucking diogo...  
-# diogo quem    
-# diogo que te deixa o cu em fogo   
